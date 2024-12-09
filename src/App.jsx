@@ -1,9 +1,10 @@
 import React from "react";
+import Navbar from "./sections/Navbar";
 
 function App() {
   return (
     <main className="max-w-7xl mx-auto">
-      <h1 className="text-3xl text-white underline">hello</h1>
+      <Navbar />
     </main>
   );
 }
