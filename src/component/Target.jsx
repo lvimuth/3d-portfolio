@@ -1,12 +1,12 @@
-import { useGLTF } from "@react-three/drei";
-import React, { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+import { useGLTF } from '@react-three/drei';
+import { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
-function Target(props) {
+const Target = (props) => {
   const targetRef = useRef();
   const { scene } = useGLTF(
-    "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/target-stand/model.gltf"
+    'https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/target-stand/model.gltf',
   );
 
   useGSAP(() => {
@@ -23,6 +23,6 @@ function Target(props) {
       <primitive object={scene} />
     </mesh>
   );
-}
+};
 
 export default Target;

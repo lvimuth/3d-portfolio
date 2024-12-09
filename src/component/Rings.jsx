@@ -1,7 +1,7 @@
-import { useGSAP } from "@gsap/react";
-import { Center, useTexture } from "@react-three/drei";
-import gsap from "gsap";
-import { useCallback, useRef } from "react";
+import { useGSAP } from '@gsap/react';
+import { Center, useTexture } from '@react-three/drei';
+import gsap from 'gsap';
+import { useCallback, useRef } from 'react';
 
 const Rings = ({ position }) => {
   const refList = useRef([]);
@@ -11,7 +11,7 @@ const Rings = ({ position }) => {
     }
   }, []);
 
-  const texture = useTexture("textures/rings.png");
+  const texture = useTexture('textures/rings.png');
 
   useGSAP(
     () => {
@@ -35,12 +35,12 @@ const Rings = ({ position }) => {
             stagger: {
               each: 0.15,
             },
-          }
+          },
         );
     },
     {
       dependencies: position,
-    }
+    },
   );
 
   return (
