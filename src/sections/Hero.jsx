@@ -3,52 +3,53 @@ import { Canvas } from "@react-three/fiber";
 import React, { Suspense } from "react";
 import HackerRoom from "../component/HackerRoom";
 import CanvasLoader from "../component/CanvasLoader";
-// import { Leva, useControls } from "leva";
+import { Leva, useControls } from "leva";
 import { useMediaQuery } from "react-responsive";
 import Target from "../component/Target";
 import { calculateSizes } from "../constants";
 import ReactLogo from "../component/ReactLogo";
 import Cube from "../component/Cube";
 import Rings from "../component/Rings";
+import HeroCamera from "../component/HeroCamera";
 
 function Hero() {
-  //   const x = useControls("HackerRoom", {
-  //     positionX: {
-  //       value: 2.5,
-  //       min: -10,
-  //       max: 10,
-  //     },
-  //     positionY: {
-  //       value: 2.5,
-  //       min: -10,
-  //       max: 10,
-  //     },
-  //     positionZ: {
-  //       value: 2.5,
-  //       min: -10,
-  //       max: 10,
-  //     },
-  //     rotationX: {
-  //       value: 0,
-  //       min: -10,
-  //       max: 10,
-  //     },
-  //     rotationY: {
-  //       value: 0,
-  //       min: -10,
-  //       max: 10,
-  //     },
-  //     rotationZ: {
-  //       value: 0,
-  //       min: -10,
-  //       max: 10,
-  //     },
-  //     scale: {
-  //       value: 1,
-  //       min: 0.01,
-  //       max: 10,
-  //     },
-  //   });
+    // const x = useControls("HackerRoom", {
+    //   positionX: {
+    //     value: 2.5,
+    //     min: -10,
+    //     max: 10,
+    //   },
+    //   positionY: {
+    //     value: 2.5,
+    //     min: -10,
+    //     max: 10,
+    //   },
+    //   positionZ: {
+    //     value: 2.5,
+    //     min: -10,
+    //     max: 10,
+    //   },
+    //   rotationX: {
+    //     value: 0,
+    //     min: -10,
+    //     max: 10,
+    //   },
+    //   rotationY: {
+    //     value: 0,
+    //     min: -10,
+    //     max: 10,
+    //   },
+    //   rotationZ: {
+    //     value: 0,
+    //     min: -10,
+    //     max: 10,
+    //   },
+    //   scale: {
+    //     value: 1,
+    //     min: 0.01,
+    //     max: 10,
+    //   },
+    // });
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const sizes = calculateSizes(isMobile);
   return (
@@ -63,21 +64,23 @@ function Hero() {
         </p>
       </div>
       <div className="w-full absolute h-full inset-0">
-        {/* <Leva /> */}
+        <Leva />
         <Canvas className="w-full h-full">
           <Suspense fallback={<CanvasLoader />}>
             <PerspectiveCamera
               makeDefault
-              position={isMobile ? [0, 0, 15] : [0, 0, 30]}
+              position={isMobile ? [0, 4, 15] : [0, 0, 30]}
             />
-            <HackerRoom
-              scale={isMobile ? 0.07 : 0.1}
-              rotation={[0.5, -3.2, 0]}
-              position={[0.7, -3, -10]}
-              //   scale={[x.scale, x.scale, x.scale]}
-              //   position={[x.positionX, x.positionY, x.positionZ]}
-              //   rotation={[x.rotationX, x.rotationY, x.rotationZ]}
-            />
+            <HeroCamera isMobile={isMobile}>
+              <HackerRoom
+                scale={isMobile ? 0.07 : 0.1}
+                rotation={[0.4, -3.5, 13.7]}
+                position={[-6.5, -4, -10]}
+                  // scale={[x.scale, x.scale, x.scale]}
+                  // position={[x.positionX, x.positionY, x.positionZ]}
+                  // rotation={[x.rotationX, x.rotationY, x.rotationZ]}
+              />
+            </HeroCamera>
 
             <group>
               <Target position={sizes.targetPosition} />
