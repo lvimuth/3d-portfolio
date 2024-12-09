@@ -7,6 +7,9 @@ import CanvasLoader from "../component/CanvasLoader";
 import { useMediaQuery } from "react-responsive";
 import Target from "../component/Target";
 import { calculateSizes } from "../constants";
+import ReactLogo from "../component/ReactLogo";
+import Cube from "../component/Cube";
+import Rings from "../component/Rings";
 
 function Hero() {
   //   const x = useControls("HackerRoom", {
@@ -46,13 +49,14 @@ function Hero() {
   //       max: 10,
   //     },
   //   });
-    const isMobile = useMediaQuery({ maxWidth: 768 });
-    const sizes = calculateSizes(isMobile)
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+  const sizes = calculateSizes(isMobile);
   return (
     <section className="min-h-screen w-full flrx flex-col relative">
       <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3">
-        <p className="sm:text-2xl text-xl font-medium text-white text-center font-generalsans">
-          Hello, I'm Lakshitha Vimuth <span className="waving-hand">👋</span>
+        <p className="sm:text-5xl text-5xl font-medium text-white text-center font-generalsans">
+          Hello <span className="waving-hand">👋</span> <br />
+          I'm Lakshitha Vimuth
         </p>
         <p className="hero_tag text-gray_gradient ">
           Innovating the Web with AI-Driven Intelligence
@@ -77,6 +81,9 @@ function Hero() {
 
             <group>
               <Target position={sizes.targetPosition} />
+              <ReactLogo position={sizes.reactLogoPosition} />
+              <Cube position={sizes.cubePosition} />
+              <Rings position={sizes.ringPosition} />
             </group>
 
             <ambientLight intensity={1} />
