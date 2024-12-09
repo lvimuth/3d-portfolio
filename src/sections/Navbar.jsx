@@ -1,6 +1,17 @@
 import React, { useState } from "react";
+import { navLinks } from "../constants";
 const NavItems = () => {
-  return <div></div>;
+  return (
+    <ul className="nav-ul">
+      {navLinks.map(({ id, href, name }) => (
+        <li key={id} className="nav-li">
+          <a href={href} className="nav-li_a" onClick={() => {}}>
+            {name}
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
 };
 
 function Navbar() {
@@ -16,7 +27,7 @@ function Navbar() {
             href="/"
             className="text-neutral-400 font-bold text-xl hover:text-white transition-colors"
           >
-            Lakshitha
+            Lakshitha Vimuth
           </a>
           <button
             onClick={toggleMenu}
@@ -29,8 +40,15 @@ function Navbar() {
               className="w-6 h-6"
             ></img>
           </button>
-          <nav className="sm:flex hidden"></nav>
+          <nav className="sm:flex hidden">
+            <NavItems />
+          </nav>
         </div>
+      </div>
+      <div className={`nav-sidebar ${isOpen ? "max-h-screen" : "max-h-0"}`}>
+        <nav className="p-5">
+          <NavItems />
+        </nav>
       </div>
     </header>
   );
