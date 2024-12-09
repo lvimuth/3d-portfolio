@@ -27,7 +27,9 @@ function Navbar() {
             href="/"
             className="text-neutral-400 font-bold text-xl hover:text-white transition-colors"
           >
-            Lakshitha Vimuth
+            <span className="text-3xl">L</span>AKSHITHA
+            <br />
+            <spam className="text-3xl">&nbsp; &emsp; V</spam>IMUTH
           </a>
           <button
             onClick={toggleMenu}

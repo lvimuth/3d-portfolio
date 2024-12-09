@@ -108,7 +108,7 @@ function Hero() {
           <Button
             name="Hire Me"
             isBeam
-            containerClass="sm:w-fit w-full sm:min-w-96"
+            containerClass="w-full lg:w-fit sm:min-w-96"
           />
         </a>
       </div>
